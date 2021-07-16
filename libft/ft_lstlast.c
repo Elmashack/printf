@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marinamamedova <marinamamedova@student.    +#+  +:+       +#+        */
+/*   By: elman <elman@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 11:04:14 by elmas             #+#    #+#             */
-/*   Updated: 2021/05/20 22:53:45 by marinamamed      ###   ########.fr       */
+/*   Updated: 2021/07/15 17:57:16 by elman            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 t_list	*ft_lstlast(t_list *lst)
 {
-	if(!lst)
-		return (NULL);
 	t_list	*tmp;
 
+	if (!lst)
+		return (NULL);
 	tmp = lst;
 	while (tmp -> next)
 		tmp = tmp -> next;

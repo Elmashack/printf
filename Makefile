@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marinamamedova <marinamamedova@student.    +#+  +:+       +#+         #
+#    By: elman <elman@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/13 23:32:54 by elman             #+#    #+#              #
-#    Updated: 2021/07/14 23:52:38 by marinamamed      ###   ########.fr        #
+#    Updated: 2021/07/15 18:00:45 by elman            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,6 @@ OBJ = $(SRC:%.c=%.o)
 HEADER = ft_printf.h
 
 FLAGS = -Wall -Wextra -Werror
-
-.PHONY: all clean fclean re bonus
 
 .c.o:
 	gcc $(FLAGS) -c $< -o $(<:.c=.o)
