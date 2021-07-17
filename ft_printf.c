@@ -6,17 +6,19 @@ int	ft_type_def(char **str, va_list arg)
 	len = 0;
 	if (**str == 'd' || **str == 'i')
 		len = ft_print_d(va_arg(arg, int));
-	if (**str == 's')
+	else if (**str == '%')
+		len = write(1, "%%", 1);
+	else if (**str == 's')
 		 len = ft_print_s(va_arg(arg, char *));
-	if (**str == 'c' || **str == '%')
-		len = ft_print_ch(str, va_arg(arg, int));
-	if (**str == 'p')
+	else if (**str == 'c')
+		len = ft_print_ch(va_arg(arg, int));
+	else if (**str == 'p')
 		len = ft_print_ptr(va_arg(arg, unsigned long));
-	if (**str == 'u')
+	else if (**str == 'u')
 		len = ft_print_u(va_arg(arg, unsigned int));
-	if (**str == 'x' || **str == 'X')
+	else if (**str == 'x' || **str == 'X')
 		len = ft_print_xX(va_arg(arg, unsigned int), str);
-	if (!(ft_strchr("cspdiuxX%", **str)))
+	else if (!(ft_strchr("cspdiuxX%", **str)))
 		return (0);
 	(*str)++;
 	return (len);
@@ -39,7 +41,7 @@ int	ft_printf(const char *frm, ...)
 	res = 0;
 	str = (char *)frm;
 	if (str == NULL)
-		return (1);
+		return (-1);
 	va_start(ap, frm);
 	while (*str)
 	{
